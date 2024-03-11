@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>TechTrends</title>
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!--google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+<style>
+    *{
+    font-family: montserrat;
+    }
+    h2{
+        font-size: large;
+    }
+    body{
+        background: #f1fbff;
+    }
+    .section-padding{
+        padding: 100px 0;
+    }
+    .carousel-item{
+        height: 100vh;
+        min-height: 300px;
+    }
+    .carousel-caption{
+        bottom: 220px;
+        z-index: 2;
+    }
+    .carousel-caption h5{
+        color: white;
+        font-size: 45px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 25px;
+    }
+    .carousel-caption p{
+        color: white;
+        width: 60%;
+        margin: auto;
+        font-size: 18px;
+        line-height: 1.9;
+    }
+    .carousel-inner::before{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0%;
+        left: 0%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 1;
+    }
+    .navbar-nav a{
+        font-size: 15px;
+        text-transform: uppercase;
+        font-weight: 500;
+    }
+
+    .navbar-light .navbar-brand{
+        color: #000;
+        font-size: 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 2px;
+    }
+    .navbar-light .navbar-brand:focus,
+    .navbar-light .navbar-brand:hover{
+        color: #0e0d0d;
+        font-family: "Protest Guerrilla", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .navbar-light .navbar-brand:hover{
+        cursor: pointer;
+    }
+    .nav .navbar-nav .nav-link:hover{
+        background-color: black;
+
+    }
+    .nav .navbar-nav .nav-link:hover i{
+        color: white;
+    }
+    .navbar-nav .nav-item .nav-link {
+    color: #000; 
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #0015ff; 
+    }
+    .social {
+    display: flex; 
+    justify-content: center;
+    margin-left: 30px;
+    }
+
+    .social a {
+        margin: 0 5px;
+        color: #000; 
+        font-size: 15px;
+    }
+
+    .social a:hover {
+        color: #076cf8;
+    }
+    .w-100{
+        height: 100vh;
+
+    }
+    .posts .card-body i{
+        font-size: 50px;
+    }
+    .portfolio .card{
+        box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+    }
+    /* ======footer====== */
+    footer.footer{
+        height: 100%;
+        background: black;
+        position: relative;
+    }
+    footer.footer .container{
+        display: grid;
+        grid-template-columns:25% 25% 25% 25%;
+    }
+    footer.footer .container > div{
+        flex-grow: 1;
+        flex-basis: 0;
+        padding: 3rem .9rem;
+    }
+
+    footer.footer .follow div i{
+        color: white;
+        padding: 0 .4rem;
+    }
+
+    footer.footer .rights{
+        justify-content: center;
+        
+        
+    }
+
+    footer.footer .rights h4 a{
+        color: #bfbfbf;
+        font-size: 0.6rem;
+    }
+    footer.footer .about-us p{
+        font-size: 0.9rem;
+        color: #808080;
+    }
+    .footer a{
+        color: #f1fbff;
+    }
+    .footer a:hover{
+        color: #0333f4;
+    }
+    /* responsive */
+
+    @media only screen and (min-width: 768px) and (max-width: 991px){
+        .carousel-caption{
+            bottom: 350px;
+        }
+        .carousel-caption p{
+            width: 100%;
+        }
+        .card{
+            margin-bottom: 30px;
+        }
+        .img-area img{
+            width: 100%;
+        }
+    
+    }
+
+    @media only screen and (max-width: 767px){
+        .navbar-nav{
+            text-align: center;
+        }
+        .carousel-caption{
+            bottom: 125px;
+        }
+        .carousel-caption h5{
+            font-size: 17px;
+        }
+        .carousel-caption a{
+            padding: 10px 15px;
+        }
+        .carousel-caption p{
+            width: 100%;
+            line-height: 1.6;
+            font-size: 12px;
+        }
+        .about-text{
+            padding-top: 50px;
+        }
+        .card{
+            margin-bottom: 30px;
+        }
+    }
+
+</style>
+<body>
+    <!--     nav bar       -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#"><span class="text-warning">Tech</span>Trends</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#posts">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact Us</a>
+                    </li>
+                </ul>
+                <div class=" social ">
+                <a href="https://www.facebook.com/manichandra.ganapathri?mibextid=ZbWKwL" class="bi bi-facebook"></a>
+                <a href="https://twitter.com/aarohan_nitdgp/status/1157207683922944000?lang=en" class="bi bi-twitter-x"></a>
+                <a href="https://www.instagram.com/praphul_chandra_370?igsh=d21yN2psb2FzeTh0" class="bi bi-instagram"></a>
+            </div>
+
+            </div>
+            
+        </div>
+    </nav>
+    <!--====== carousel section =======-->
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://t4.ftcdn.net/jpg/03/08/69/75/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg" class="d-block w-100" alt="1">
+            <div class="carousel-caption">
+              <h5>AI Advancements</h5>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi reiciendis iusto incidunt enim, sit qui dolorum est blanditiis laudantium debitis?</p>
+              <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQilR7HZvUisYl3ebuud0VYu5f3UOcd0sHB6VrKuyO4lLXuu1fP2NwsLIq33av2Y2NEVhI&usqp=CAU" class="d-block w-100" alt="2">
+            <div class="carousel-caption">
+              <h5>Always Dedicated</h5>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolor provident iste laborum minus fugiat quae maxime tempore? Eum, aspernatur facere.</p>
+              <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://m.economictimes.com/thumb/msid-99875466,width-1200,height-900,resizemode-4,imgsize-105144/companies-eye-indian-expats-for-niche-tech-roles.jpg" class="d-block w-100" alt="3">
+            <div class="carousel-caption">
+              <h5>Quantum Computing</h5>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, corporis neque. Nemo quae expedita impedit, quo quis distinctio fugit esse?</p>
+              <p><a href="#" class="btn btn-warning mt-3">Learn More</a></p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+        <!--====== recent post section ======
+        <section id="port" class="port section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 col-12">
+                        <div class="port-img">
+                            <img src="img/about.png" alt="..." class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-mg-12 col-12 ps-lg-5 mt-md-5">
+                        <div class="port-text">
+                            <h2>hydrogen powered train</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam veritatis itaque exercitationem totam optio corporis, laudantium magni adipisci! Vitae quos natus rem laborum ipsa quisquam, iure sequi officiis exercitationem fugit.</p>
+                            <a href="#" class="btn btn-warning">learn more</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+-->
+        <!--====== post card topics ======-->
+        <section id="posts" class="posts section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="post-header text-center pb-5">
+                            <h2>Hot Topics</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur <br> adipisicing elit. Sit, numquam!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card text-white text-center bg-dark pb-2">
+                            <div class="card-body">
+                                <i class="bi bi-display"></i>
+                                <h3 class="card-title">Quantum Computing</h3>
+                                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error in commodi, laudantium blanditiis consectetur amet voluptates deleniti fugiat esse id a cupiditate reprehenderit quae cum.</p>
+                                <div class="btn btn-warning text-dark">Read More</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card text-white text-center bg-dark pb-2">
+                            <div class="card-body">
+                                <i class="bi bi-dropbox"></i>
+                                <h3 class="card-title">Machine Learning</h3>
+                                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error in commodi, laudantium blanditiis consectetur amet voluptates deleniti fugiat esse id a cupiditate reprehenderit quae cum.</p>
+                                <div class="btn btn-warning text-dark">Read More</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card text-white text-center bg-dark pb-2">
+                            <div class="card-body">
+                                <i class="bi bi-earbuds"></i>
+                                <h3 class="card-title">Technology</h3>
+                                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error in commodi, laudantium blanditiis consectetur amet voluptates deleniti fugiat esse id a cupiditate reprehenderit quae cum.</p>
+                                <div class="btn btn-warning text-dark">Read More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--====== posts ======-->
+        <section id="portfolio" class="portfolio section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="portfolio-header text-center pb-5">
+                            <h2>My Posts</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur <br> adipisicing elit. Sit, numquam!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card text-center bg-white pb-2">
+                            <div class="card-body text-dark">
+                                <div class="img-area mb-4">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy0pb-Md-9udWP-DuGmsRio1nOXpbIOMFSWnGNtjmInvNPCiU41TPWi0f1T3tH130sZo8&usqp=CAU" alt="" class="img-fluid">
+                                </div>
+                                <h3 class="card-title">Technological Innovations</h3>
+                                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error in commodi, laudantium blanditiis consectetur amet voluptates deleniti fugiat esse id a cupiditate reprehenderit quae cum.</p>
+                                <div class="btn btn-warning text-dark">Read More</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card text-center bg-white pb-2">
+                            <div class="card-body text-dark">
+                                <div class="img-area mb-4">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy0pb-Md-9udWP-DuGmsRio1nOXpbIOMFSWnGNtjmInvNPCiU41TPWi0f1T3tH130sZo8&usqp=CAU" alt="" class="img-fluid">
+                                </div>
+                                <h3 class="card-title">Technological Innovations</h3>
+                                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error in commodi, laudantium blanditiis consectetur amet voluptates deleniti fugiat esse id a cupiditate reprehenderit quae cum.</p>
+                                <div class="btn btn-warning text-dark">Read More</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-4">
+                        <div class="card text-center bg-white pb-2">
+                            <div class="card-body text-dark">
+                                <div class="img-area mb-4">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy0pb-Md-9udWP-DuGmsRio1nOXpbIOMFSWnGNtjmInvNPCiU41TPWi0f1T3tH130sZo8&usqp=CAU" alt="" class="img-fluid">
+                                </div>
+                                <h3 class="card-title">Technological Innovations</h3>
+                                <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error in commodi, laudantium blanditiis consectetur amet voluptates deleniti fugiat esse id a cupiditate reprehenderit quae cum.</p>
+                                <div class="btn btn-warning text-dark">Read More</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--====== contact section ======-->
+        <section id="contact" class="contact section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="section-header text-center pb-5">
+                            <h2>Contact Us</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur <br> adipisicing elit. Sit, numquam!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="col-md-12 p-0 pt-4 pb-4">
+                        <form action="https://api.web3forms.com/submit"  method="POST" class="bg-light p-4.m-auto">
+                            <input type="hidden" name="access_key" value="2d222a55-ba72-4db6-b703-30d891b22d6f">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <input name="Name" type="text" class="form-control" required placeholder="Your Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <input name="Phone no.:" type="number" class="form-control" required placeholder="Your mobile number">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <input name="Email Address:" type="email" class="form-control" required placeholder="Your Email Address">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="mb-3">
+                                        <textarea name="Message:" rows="3" required class="form-control" placeholder="Your Query"></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-lg btn-block mt-3">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--===== footer =====-->
+        <footer class="footer">
+            <div class="about-us text-white pb-4">
+                <h2>About Us</h2>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste, velit quidem sit nobis rerum modi alias ipsa incidunt obcaecati laboriosam sequi ipsum, ut vero sint atque sed doloribus aspernatur assumenda quos maiores consequatur. Excepturi, atque obcaecati? Nostrum recusandae magnam <br>tempore ab quas, distinctio officiis doloremque asperiores alias temporibus voluptatibus voluptatum?</p>
+            </div>
+            <div class="follow text-white pb-2">
+                <h2>Follow Us on</h2>
+                <div>
+                    <a href="https://www.facebook.com/manichandra.ganapathri?mibextid=ZbWKwL" class="bi bi-facebook"></a>
+                    <a href="https://twitter.com/aarohan_nitdgp/status/1157207683922944000?lang=en" class="bi bi-twitter-x"></a>
+                    <a href="https://www.instagram.com/praphul_chandra_370?igsh=d21yN2psb2FzeTh0" class="bi bi-instagram"></a>
+                </div>
+            </div>
+        
+            <div class="rights flex-row">
+                <h4 class="text-white text-center">
+                  Copyright ©️2019 All rights reserved | designed by G.Praphul Chandra
+                </h4>
+            </div>
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherBit</title>
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- css file -->
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<style>
+    body {
+    background: url('https://img.freepik.com/free-vector/flat-design-monsoon-season-clouds-illustration_23-2149424294.jpg?size=626&ext=jpg&ga=GA1.1.1700460183.1710115200&semt=ais');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    }
+
+    #weather-container {
+        background: rgba(84, 118, 162, 0.1);
+        max-width: 400px;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(40, 127, 177, 0.1);
+        text-align: center;
+    }
+
+    h2, label, p {
+        color: #fff;
+        margin: 8px 0;
+    }
+    h2{
+        font-size: 28px;
+    }
+
+    input {
+        width: calc(100% - 16px);
+        padding: 8px;
+        box-sizing: border-box;
+        border-radius: 10px;
+        border: 1px solid white;
+        margin-top: 20px;
+    }
+    button {
+        background: #6c87f5;
+        color: white;
+        border: none;
+        padding: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin-top: 20px;
+        width: 100px;
+        font-size: 15px;
+    }
+    button:hover {
+        background: rgb(69, 79, 171);
+
+    } 
+    .detail{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-top: 20px;
+        padding-bottom: 30px;
+    }
+
+    .col{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+    }
+    .col i{
+        font-size: 25px;
+        color: black;
+    }
+    .col p{
+        color: white;
+        font-size: 17px;  
+    }
+
+
+
+    #temp-div p {
+        font-size: 60px;
+        margin-top: -30px;
+    }
+
+    #weather-info {
+        font-size: 20px;
+    }
+
+    #weather-icon {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 10px; 
+        margin-bottom: 0;
+        display: none;
+    }
+
+    #hourly-forecast {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        justify-content: space-between;
+    }
+    .hourly-item {
+        flex: 0 0 auto;
+        width: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 10px;
+        color: white;
+    }
+
+    .hourly-item img {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+
+    #hourly-heading {
+        color: #fff;
+        margin-top: 10px;
+    }
+    /* responsive */
+    @media only screen and (max-width: 450px) {
+        #weather-container {
+            max-width: 320px;
+            padding: 13px;
+        }
+        h2{
+            font-size: 19px;
+        }
+        #temp-div p {
+            font-size: 40px;
+        }
+        input {
+            width: calc(100% - 50px);
+            padding: 7px;
+            margin-top: 15px;
+        }
+        #weather-icon {
+            width: 150px;
+            height: 150px; 
+        }
+        #weather-info {
+            font-size: 17px;
+        }
+        .hourly-item img {
+            width: 25px;
+            height: 25px;
+            margin-bottom: 4px;
+        }
+        button {
+            padding: 8px;
+            margin-top: 17px;
+            width: 90px;
+            font-size: 13px;
+        }
+        .col i{
+            font-size: 19px;
+
+        }
+        .col p{
+            font-size: 12px;
+
+        }
+
+    
+    }
+
+    @media only screen and (min-width: 451px) and (max-width: 530px) {
+        #weather-container {
+            max-width: 350px;
+            padding: 15px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        #temp-div p {
+            font-size: 45px;
+        }
+        input {
+            width: calc(100% - 50px);
+            padding: 7px;
+            margin-top: 15px;
+        }
+        #weather-icon {
+            width: 170px;
+            height: 170px; 
+        }
+        #weather-info {
+            font-size: 19px;
+        }
+        .hourly-item img {
+            width: 25px;
+            height: 25px;
+            margin-bottom: 4px;
+        }
+        button {
+            padding: 7px;
+            margin-top: 19px;
+            width: 92px;
+            font-size: 14px;
+        }
+        .col i{
+            font-size: 22px;
+
+        }
+        .col p{
+            font-size: 14px;
+
+        }
+        
+    
+    }
+    @media only screen and (min-width: 531px) and (max-width: 840px) {
+        #weather-container {
+            max-width: 450px;
+            padding: 20px;
+        }
+        h2{
+            font-size: 27px;
+        }
+        #temp-div p {
+            font-size: 50px;
+        }
+        input {
+            width: calc(100% - 50px);
+            padding: 7px;
+            margin-top: 15px;
+        }
+        #weather-icon {
+            width: 190px;
+            height: 190px; 
+        }
+        #weather-info {
+            font-size: 21px;
+        }
+        .col i{
+            font-size: 23px;
+
+        }
+        .col p{
+            font-size: 15px;
+
+        }
+    
+    }
+    @media only screen and (min-width: 841px) and (max-width: 1500px) {
+        #weather-container {
+            max-width: 500px;
+            padding: 23px;
+        }
+        h2{
+            font-size: 30px;
+        }
+        #temp-div p {
+            font-size: 50px;
+        }
+        input {
+            width: calc(100% - 50px);
+            padding: 12px;
+            margin-top: 15px;
+        }
+        #weather-icon {
+            width: 200px;
+            height: 200px; 
+        }
+        #weather-info {
+            font-size: 25px;
+        }
+        #city{
+            font-size: 15px;
+        }
+
+    
+    }
+
+</style>
+<body>
+    
+    <div id="weather-container">
+        <h2>WeatherBit</h2>
+        <input type="text" id="city" placeholder="Enter city">
+        <button onclick="getWeather()">Search</button>
+        <div class="body">
+            <img id="weather-icon" alt="Weather Icon">
+            
+            <div id="temp-div"></div>
+            <div id="weather-info"></div>
+            <div id="hourly-forecast"></div>
+
+        </div>
+       <div class="detail">
+            <div class="col">
+                <div>
+                    <h5 id="humidity"></h5>
+                </div>
+            </div>
+            <div class="col">
+                <div>
+                    <h5 id="speed"></h5>
+                </div>
+            </div>
+            </div>
+        </div>  
+    </div>
+     <script>
+            function getWeather() {
+            const apiKey = 'f27b269d54e4fa1e72993364a80fa8bd';
+            const city = document.getElementById('city').value;
+
+            if (!city) {
+                alert('Please enter a city');
+                return;
+            }
+
+            const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+            const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`;
+
+            fetch(currentWeatherUrl)
+                .then(response => response.json())
+                .then(data => {
+                    displayWeather(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching current weather data:', error);
+                    alert('Error fetching current weather data. Please try again.');
+                });
+
+            fetch(forecastUrl)
+                .then(response => response.json())
+                .then(data => {
+                    displayHourlyForecast(data.list);
+                })
+                .catch(error => {
+                    console.error('Error fetching hourly forecast data:', error);
+                    alert('Error fetching hourly forecast data. Please try again.');
+                });
+        }
+
+        function displayWeather(data) {
+            const tempDivInfo = document.getElementById('temp-div');
+            const weatherInfoDiv = document.getElementById('weather-info');
+            const weatherIcon = document.getElementById('weather-icon');
+            const hourlyForecastDiv = document.getElementById('hourly-forecast');
+            const humidityDiv = document.getElementById('humidity');
+            const windSpeedDiv = document.getElementById('speed');
+            
+            // Clear previous content
+            weatherInfoDiv.innerHTML = '';
+            hourlyForecastDiv.innerHTML = '';
+            tempDivInfo.innerHTML = '';
+            humidityDiv.innerHTML = '';
+            windSpeedDiv.innerHTML = '';
+            if (data.cod === '404') {
+                weatherInfoDiv.innerHTML = `<p>${data.message}</p>`;
+            } else {
+                const cityName = data.name;
+                const temperature = Math.round(data.main.temp - 273.15); // Convert to Celsius
+                const description = data.weather[0].description;
+                const iconCode = data.weather[0].icon;
+                const humidity = data.main.humidity;
+                const windSpeed = data.wind.speed;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@4x.png`;
+        
+                const temperatureHTML = `
+                    <p>${temperature}°C</p>
+                    `;
+                const weatherHTML = `
+                    <p>${cityName}</p>
+                    <p>${description}</p>
+                    `;
+                const humidityHTML = `
+                <i class="fa-solid fa-droplet"></i>
+                    <p>${humidity}%</p>
+                    <p>Humidity</p>
+                    `;
+                const windSpeedHTML = `
+                <i class="fa-solid fa-wind"></i>
+                    <p>${windSpeed}m/s</p>
+                    <p>WindSpeed</p>
+                    `;
+                
+                tempDivInfo.innerHTML = temperatureHTML;
+                weatherInfoDiv.innerHTML = weatherHTML;
+                weatherIcon.src = iconUrl;
+                weatherIcon.alt = description;
+                humidityDiv.innerHTML = humidityHTML;
+                windSpeedDiv.innerHTML =  windSpeedHTML;
+
+                showImage();
+            }
+        }
+        function displayHourlyForecast(hourlyData) {
+            const hourlyForecastDiv = document.getElementById('hourly-forecast');
+
+            const next24Hours = hourlyData.slice(0, 8); // Display the next 24 hours (3-hour intervals)
+
+            next24Hours.forEach(item => {
+                const dateTime = new Date(item.dt * 1000); // Convert timestamp to milliseconds
+                const hour = dateTime.getHours();
+                const temperature = Math.round(item.main.temp - 273.15); // Convert to Celsius
+                const iconCode = item.weather[0].icon;
+                const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+
+                const hourlyItemHtml = `
+                    <div class="hourly-item">
+                        <span>${hour}:00</span>
+                        <img src="${iconUrl}" alt="Hourly Weather Icon">
+                        <span>${temperature}°C</span>
+                    </div>
+                `;
+
+                hourlyForecastDiv.innerHTML += hourlyItemHtml;
+            });
+        }
+
+        function showImage() {
+            const weatherIcon = document.getElementById('weather-icon');
+            weatherIcon.style.display = 'block'; // Make the image visible once it's loaded
+        }
+     </script> 
+</body>
+</html>
